@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>980</width>
+    <height>620</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>손동작 인식 - Jetson Realtime</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="rootLayout">
+    <property name="spacing">
+     <number>16</number>
+    </property>
+    <property name="leftMargin">
+     <number>16</number>
+    </property>
+    <property name="topMargin">
+     <number>16</number>
+    </property>
+    <property name="rightMargin">
+     <number>16</number>
+    </property>
+    <property name="bottomMargin">
+     <number>16</number>
+    </property>
+
+    <item>
+     <widget class="QLabel" name="video_label">
+      <property name="minimumSize">
+       <size>
+        <width>560</width>
+        <height>420</height>
+       </size>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>1</horstretch>
+        <verstretch>1</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="text">
+       <string>camera feed</string>
+      </property>
+      <property name="objectName" stdset="0">
+       <string notr="true">video_label</string>
+      </property>
+     </widget>
+    </item>
+
+    <item>
+     <widget class="QFrame" name="status_panel">
+      <property name="minimumSize">
+       <size>
+        <width>280</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>320</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="statusLayout">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+
+       <item>
+        <widget class="QFrame" name="card_state">
+         <layout class="QVBoxLayout" name="card_state_layout">
+          <property name="leftMargin"><number>14</number></property>
+          <property name="topMargin"><number>10</number></property>
+          <property name="rightMargin"><number>14</number></property>
+          <property name="bottomMargin"><number>10</number></property>
+          <item>
+           <widget class="QLabel" name="state_title">
+            <property name="text"><string>STATE</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="state_value">
+            <property name="text"><string>IDLE_WATCH</string></property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="card_pose">
+         <layout class="QVBoxLayout" name="card_pose_layout">
+          <property name="leftMargin"><number>14</number></property>
+          <property name="topMargin"><number>10</number></property>
+          <property name="rightMargin"><number>14</number></property>
+          <property name="bottomMargin"><number>10</number></property>
+          <item>
+           <widget class="QLabel" name="pose_title">
+            <property name="text"><string>POSE</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="pose_value">
+            <property name="text"><string>-</string></property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="card_armed">
+         <layout class="QVBoxLayout" name="card_armed_layout">
+          <property name="leftMargin"><number>14</number></property>
+          <property name="topMargin"><number>10</number></property>
+          <property name="rightMargin"><number>14</number></property>
+          <property name="bottomMargin"><number>10</number></property>
+          <item>
+           <widget class="QLabel" name="armed_title">
+            <property name="text"><string>ARMED</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="armed_value">
+            <property name="text"><string>- · 0 frames</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QProgressBar" name="armed_progress">
+            <property name="minimum"><number>0</number></property>
+            <property name="maximum"><number>30</number></property>
+            <property name="value"><number>0</number></property>
+            <property name="textVisible"><bool>false</bool></property>
+            <property name="maximumSize">
+             <size><width>16777215</width><height>6</height></size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="card_fired">
+         <layout class="QHBoxLayout" name="card_fired_layout">
+          <property name="leftMargin"><number>14</number></property>
+          <property name="topMargin"><number>10</number></property>
+          <property name="rightMargin"><number>14</number></property>
+          <property name="bottomMargin"><number>10</number></property>
+          <item>
+           <layout class="QVBoxLayout" name="card_fired_text_layout">
+            <item>
+             <widget class="QLabel" name="fired_title">
+              <property name="text"><string>LAST FIRED</string></property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="fired_value">
+              <property name="text"><string>-</string></property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="fired_icon">
+            <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+            <property name="text"><string>•</string></property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="card_server">
+         <layout class="QHBoxLayout" name="card_server_layout">
+          <property name="leftMargin"><number>14</number></property>
+          <property name="topMargin"><number>10</number></property>
+          <property name="rightMargin"><number>14</number></property>
+          <property name="bottomMargin"><number>10</number></property>
+          <item>
+           <widget class="QLabel" name="server_title">
+            <property name="text"><string>SERVER</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="server_value">
+            <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+            <property name="text"><string>connecting...</string></property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation"><enum>Qt::Vertical</enum></property>
+         <property name="sizeHint" stdset="0">
+          <size><width>20</width><height>40</height></size>
+         </property>
+        </spacer>
+       </item>
+
+       <item>
+        <widget class="QPushButton" name="quit_button">
+         <property name="text"><string>종료</string></property>
+        </widget>
+       </item>
+
+      </layout>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

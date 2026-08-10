@@ -1,0 +1,10 @@
+{
+  "0": "click",
+  "1": "idle",
+  "2": "move_left",
+  "3": "move_right",
+  "4": "scroll_down",
+  "5": "scroll_up",
+  "6": "zoom_in",
+  "7": "zoom_out"
+}

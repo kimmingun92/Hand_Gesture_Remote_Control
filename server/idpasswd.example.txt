@@ -1,0 +1,2 @@
+KMG_LIN yourpassword
+YGY_LIN yourpassword

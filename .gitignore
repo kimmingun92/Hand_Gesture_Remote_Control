@@ -1,0 +1,14 @@
+# 실제 인증 정보 (예시 파일만 커밋: idpasswd.example.txt)
+server/idpasswd.txt
+
+# 수집한 원본 학습 데이터 (개인 손 데이터라 비공개)
+*.csv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
