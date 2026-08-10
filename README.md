@@ -34,26 +34,18 @@ Jetson Nano가 웹캠 영상을 온디바이스로 처리해 동작을 판단하
 
 ```
 .
-├── data_collection/            # 로컬 PC에서 실행 (학습 데이터 수집)
-│   ├── collect_gesture_data.py # 동작(움직임) 데이터 수집
-│   └── collect_pose_data.py    # 준비 자세(정지) 데이터 수집
-├── training/                   # Google Colab에서 실행 (모델 학습)
-│   ├── train_gesture_colab.ipynb
-│   └── train_pose_colab.ipynb
-├── jetson_client/                # Jetson Nano에서 실행 (실시간 인식 + PyQt5 화면)
-│   ├── main.py                   # 진입점
-│   ├── main_window.py            # 화면 로직 (.ui 로드, 상태 표시)
-│   ├── gesture_worker.py         # 인식 백엔드 (QThread) — 핵심 로직
-│   ├── gesture_ui.ui              # Qt Designer 레이아웃
-│   ├── gesture_weights.npz        # Colab 학습 결과물 (동작 모델 가중치)
-│   ├── scaler_params.json         # 동작 모델 StandardScaler 파라미터
-│   ├── labels.json                # 동작 모델 클래스 순서
-│   ├── pose_weights.npz           # Colab 학습 결과물 (자세 모델 가중치)
-│   └── pose_labels.json           # 자세 모델 클래스 순서
-└── server/                       # Ubuntu PC에서 실행 (명령 수신 + 실제 제어)
-    ├── gesture_server.py
-    └── idpasswd.example.txt      # 인증 파일 예시 (실 파일은 idpasswd.txt로 별도 생성)
+├── data_collection/   # 로컬 PC에서 실행 — 학습 데이터 수집
+├── training/           # Google Colab에서 실행 — 모델 학습
+├── jetson_client/       # Jetson Nano에서 실행 — 실시간 인식 + PyQt5 화면
+└── server/               # Ubuntu PC에서 실행 — 명령 수신 + 실제 제어
 ```
+
+각 폴더 안의 파일 역할, 실행 방법, 파라미터는 폴더별 README에 정리했다.
+
+- [`data_collection/README.md`](data_collection/README.md)
+- [`training/README.md`](training/README.md)
+- [`jetson_client/README.md`](jetson_client/README.md)
+- [`server/README.md`](server/README.md)
 
 ## 핵심 설계 — 2단 모델 구조
 
